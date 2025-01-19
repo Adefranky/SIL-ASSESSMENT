@@ -1,0 +1,89 @@
+/* Global Styles */
+body {
+  background-color: #f4f1f0; /* Light beige background for a professional feel */
+  color: #4b2d2f; /* Maroon text color */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Card Styling */
+.signup-card {
+  width: 100%;
+  max-width: 450px;
+  background-color: #ffffff; /* White background for the form card */
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo */
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  width: 150px;
+  height: auto;
+}
+
+/* Form Fields */
+mat-form-field {
+  width: 100%;
+  background-color: #f9f9f9; /* Light gray for input fields */
+  border-radius: 4px;
+}
+
+.field {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  height: 50px;
+  background-color: maroon; /* Maroon */
+  color: #fff; /* White text for contrast */
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #6a3f3b; /* Darker maroon on hover */
+  }
+}
+
+/* Login Link */
+.login-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-link a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #4b2d2f; /* Maroon */
+
+  &:hover {
+    color: #6a3f3b; /* Darker maroon on hover */
+  }
+}
+
+.login-link span {
+  margin-right: 8px;
+}

@@ -1,0 +1,33 @@
+<div class="form-container">
+  <mat-card class="signup-card">
+    <mat-card-content>
+      <div class="logo">
+        <img src="path_to_logo.png" alt="Company Logo" class="logo-img" />
+      </div>
+      <h2>Kindly register here before proceeding to login</h2>
+      <form [formGroup]="signupForm" (ngSubmit)="postData()" class="signupForm">
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Enter Email" />
+        </mat-form-field>
+
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="password"
+            placeholder="Enter Password"
+          />
+        </mat-form-field>
+
+        <button mat-raised-button type="submit">Submit</button>
+
+        <div class="login-link">
+          <span>Already have an account?</span>
+          <a href="authentication/login">Login</a>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

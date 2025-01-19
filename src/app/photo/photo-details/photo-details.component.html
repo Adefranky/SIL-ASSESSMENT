@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Photo Details</h2>
+
+  <div class="photo-container">
+    <img [src]="photo?.url" [alt]="photo?.title" class="photo-image" />
+
+    <div class="title-section">
+      <!-- Display title or edit mode -->
+      <p *ngIf="!isEditing" class="photo-title">{{ photo?.title }}</p>
+      <input
+        *ngIf="isEditing"
+        [(ngModel)]="newTitle"
+        type="text"
+        class="edit-title-input"
+      />
+
+      <!-- Buttons to toggle between edit and save -->
+      <button *ngIf="!isEditing" (click)="editTitle()" class="edit-button">
+        Edit Title
+      </button>
+      <button *ngIf="isEditing" (click)="saveTitle()" class="save-button">
+        Save
+      </button>
+    </div>
+  </div>
+
+  <!-- Close button -->
+  <button mat-button (click)="closeDialog()" class="close-dialog-btn">
+    Close
+  </button>
+</div>

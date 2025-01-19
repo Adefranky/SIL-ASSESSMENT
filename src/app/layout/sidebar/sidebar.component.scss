@@ -1,0 +1,49 @@
+/* Style for mat-list */
+mat-list {
+  padding: 0;
+  font-size: 55px;
+  list-style: none;
+}
+
+mat-list-item {
+  font-size: 50px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  color: #333;
+}
+
+/* Hover effect for mat-list-item */
+mat-list-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar button (for list items and collapsible menu) */
+.list_button {
+  margin-bottom: 8px;
+}
+
+/* Make the sidebar input field full width */
+input[type="text"] {
+  width: 100%;
+}
+
+/* Sidebar hover effect for links */
+a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Styling for collapsible menu icon */
+.list_button mat-icon {
+  color: #c53030; /* Red color */
+}
+
+/* Additional styling for collapsible menu */
+mat-list-item {
+  padding-left: 24px;
+}
+
+/* Styling for the sidebar layout */
+.sidebar {
+  background-color: #f8f9fa;
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+}

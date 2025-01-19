@@ -1,0 +1,30 @@
+<div class="users-container">
+  <h2>Users List</h2>
+
+  <p *ngIf="loading">Loading users...</p>
+
+  <table *ngIf="!loading" class="users-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Albums</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.albumCount }}</td>
+        <td>
+          <button class="view-button" (click)="viewUser(user)">View</button>
+          <button class="edit-button" (click)="editUser(user)">Edit</button>
+          <button class="details-button" (click)="userDetails(user)">
+            Details
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

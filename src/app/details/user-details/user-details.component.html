@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>{{ user?.name }}</h2>
+  <p><strong>Email:</strong> {{ user?.email }}</p>
+  <p><strong>Phone:</strong> {{ user?.phone }}</p>
+  <p>
+    <strong>Website:</strong>
+    <a href="{{ user?.website }}" target="_blank">{{ user?.website }}</a>
+  </p>
+
+  <h3>Albums ({{ albums.length }})</h3>
+  <ul>
+    <li *ngFor="let album of albums">
+      <strong>{{ album.title }}</strong>
+    </li>
+  </ul>
+</div>

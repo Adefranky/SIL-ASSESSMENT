@@ -1,0 +1,127 @@
+/* General container styling for Photo Details */
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Header styling */
+.container h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Photo container styling */
+.photo-container {
+  text-align: center;
+}
+
+.photo-image {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title section styling */
+.title-section {
+  margin-top: 10px;
+}
+
+/* Title styling */
+.photo-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Edit title input field styling */
+.edit-title-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border 0.3s;
+}
+
+.edit-title-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button styling */
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Button hover effects */
+button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Specific button styles */
+.edit-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.save-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.close-dialog-btn {
+  background-color: #dc3545;
+  color: white;
+  margin-top: 20px;
+}
+
+/* Button layout */
+button {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .photo-image {
+    max-width: 100%;
+  }
+
+  .edit-title-input {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

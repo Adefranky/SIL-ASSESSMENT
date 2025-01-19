@@ -1,0 +1,78 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>ALBUM MANAGEMENT SYSTEM</h2>
+    </div>
+    <p class="system-description">
+      A streamlined platform that allows users to effortlessly create, organize,
+      and manage their photo albums. Keep your memories safe, categorized, and
+      easily accessible anytime.
+    </p>
+    <mat-card-content>
+      <div class="avatar">
+        <mat-icon>account_circle</mat-icon>
+      </div>
+      <p class="welcome-text">Welcome!</p>
+      <h3>Sign in to your account</h3>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" required />
+          <mat-error
+            *ngIf="
+              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+            "
+          >
+            Please enter a valid email.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            required
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="hidePassword = !hidePassword"
+          >
+            <mat-icon>{{
+              hidePassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+            "
+          >
+            Password is required.
+          </mat-error>
+        </mat-form-field>
+
+        <div class="actions">
+          <mat-checkbox formControlName="rememberMe">Remember me</mat-checkbox>
+          <a
+            class="forgot-password"
+            routerLink="/authentication/forgot-password"
+            >Forgot password?</a
+          >
+        </div>
+
+        <button mat-raised-button color="warn" class="full-width" type="submit">
+          Login
+        </button>
+      </form>
+
+      <p class="register-text">
+        Don’t have an account yet?
+        <a routerLink="/authentication/signup">Create an account</a>
+      </p>
+    </mat-card-content>
+  </div>
+</div>

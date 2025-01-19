@@ -1,0 +1,118 @@
+/* General container styling */
+.users-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Header styling */
+.users-container h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Loading text */
+.users-container p {
+  font-size: 16px;
+  color: #777;
+  text-align: center;
+}
+
+/* Table styling */
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.users-table th,
+.users-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.users-table th {
+  background-color: #f4f4f4;
+  font-weight: 500;
+  color: #333;
+}
+
+.users-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+.users-table tr:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Button styling */
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #c53030; /* Red color for hover effect */
+  color: #fff;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Specific button styles */
+button.view-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+button.edit-button {
+  background-color: #ffa500;
+  color: white;
+}
+
+button.details-button {
+  background-color: #2196F3;
+  color: white;
+}
+
+/* Table cell buttons layout */
+.users-table td button {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .users-container {
+    padding: 15px;
+  }
+
+  .users-table {
+    font-size: 14px;
+  }
+
+  .users-table th, .users-table td {
+    padding: 8px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

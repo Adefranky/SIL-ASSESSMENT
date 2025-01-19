@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>{{ album?.title }}</h2>
+  <p><strong>Album ID:</strong> {{ album?.id }}</p>
+  <p><strong>User ID:</strong> {{ album?.userId }}</p>
+
+  <h3>Photos ({{ photos.length }})</h3>
+  <div class="photo-grid">
+    <div *ngFor="let photo of photos" class="photo-card">
+      <img [src]="photo.thumbnailUrl" [alt]="photo.title" />
+      <p>{{ photo.title }}</p>
+    </div>
+  </div>
+</div>
