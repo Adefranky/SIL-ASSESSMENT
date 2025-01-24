@@ -1,4 +1,9 @@
 <div class="users-container">
+  <div class="top-right">
+    <button class="back-button" (click)="goToDashboard()">
+      Back to Dashboard
+    </button>
+  </div>
   <h2>Users List</h2>
 
   <p *ngIf="loading">Loading users...</p>

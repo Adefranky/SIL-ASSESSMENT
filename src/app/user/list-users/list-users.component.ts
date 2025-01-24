@@ -33,11 +33,9 @@ export class ListUsersComponent {
   viewUser(user: any): void {
     this.router.navigate(['albums/albums', user.id]); // Navigate to a user details page
   }
-
-  // Edit user details
-  // editUser(user: any): void {
-  //   this.router.navigate(['photo/photo', user.id]); // Navigate to an edit form
-  // }
+  goToDashboard(): void {
+    this.router.navigate(['/dashboard']);
+  }
 
   // Open Photo Details in Dialog
   editUser(user: any): void {

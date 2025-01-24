@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlbumService } from '../album.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class AlbumDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private albumService: AlbumService
+    private albumService: AlbumService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -44,4 +45,7 @@ export class AlbumDetailsComponent implements OnInit {
     event.target.src = 'assets/default-image.png';
   }
 
+  goBack(): void {
+    this.router.navigate(['/dashboard']); // Navigate to dashboard or previous route
+  }
 }

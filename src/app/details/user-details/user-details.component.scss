@@ -9,7 +9,18 @@
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   text-align: left;
 }
-
+/* Back to Dashboard Button */
+.back-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: background-color 0.3s;
+}
 /* Header styling for the user name and section titles */
 h2 {
   font-size: 28px;

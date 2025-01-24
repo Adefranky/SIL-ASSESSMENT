@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DetailsService } from '../details.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class UserDetailsComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private userService: DetailsService
+    private userService: DetailsService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -30,5 +31,8 @@ export class UserDetailsComponent {
     this.userService.getUserAlbums(this.userId).subscribe(albums => {
       this.albums = albums;
     });
+  }
+  goToDashboard(): void {
+    this.router.navigate(['/dashboard']);
   }
 }
