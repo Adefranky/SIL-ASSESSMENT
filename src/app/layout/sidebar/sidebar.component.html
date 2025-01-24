@@ -1,114 +1,48 @@
 <div
-  class="overflow-y-auto w-64 py-5 px-3 h-full"
+  class="overflow-y-auto w-64 py-10 px-4 h-full sidebar flex flex-col justify-start"
   [ngClass]="{ hidden: !sidebarVisible, block: sidebarVisible }"
 >
-  <!-- Search Form -->
-  <form action="#" method="GET" class="mb-4">
-    <label for="sidebar-search" class="sr-only">Search</label>
-    <div class="relative">
-      <mat-icon class="absolute inset-y-0 left-0 pl-3 text-gray-500"
-        >search</mat-icon
-      >
-      <input
-        type="text"
-        name="search"
-        id="sidebar-search"
-        placeholder="Search"
-        class="bg-gray-50 border border-gray-300 text-sm rounded-lg w-full px-10 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500"
-      />
-    </div>
-  </form>
+  <!-- Dashboard Link -->
+  <a
+    [routerLink]="['dashboard']"
+    class="flex items-center p-4 rounded-lg hover:bg-gray-700"
+  >
+    <mat-icon class="text-white text-3xl">dashboard</mat-icon>
+    <span class="ml-4 text-white text-xl">Dashboard</span>
+  </a>
 
-  <!-- Sidebar Menu -->
-  <ul class="side_button gap-2 flex flex-col">
-    <!-- Dashboard Link -->
-    <li class="list_button">
-      <a
-        [routerLink]="['dashboard']"
-        mat-list-item
-        class="flex items-center p-2 rounded-lg hover:bg-gray-100"
-      >
-        <mat-icon class="text-red-900 text-xl">dashboard</mat-icon>
-        <span class="ml-2">Dashboard</span>
-      </a>
-    </li>
+  <!-- Home Link -->
+  <a
+    [routerLink]="['user/list-users']"
+    class="flex items-center p-4 rounded-lg hover:bg-gray-700"
+  >
+    <mat-icon class="text-white text-3xl">store</mat-icon>
+    <span class="ml-4 text-white text-xl">HOME</span>
+  </a>
 
-    <!-- Collapsible Menu (Users) -->
-    <li class="list_button">
-      <div
-        (click)="toggleMenu('isHidden1')"
-        class="flex items-center p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
-      >
-        <mat-icon class="text-red-900">store</mat-icon>
-        <span class="ml-2">HOME</span>
-      </div>
-      <div *ngIf="!isHidden1">
-        <mat-list>
-          <mat-list-item [routerLink]="['user/list-users']" class="p-2"
-            >List Users</mat-list-item
-          >
-          <mat-list-item [routerLink]="['user/list-users']" class="p-2"
-            >Users List</mat-list-item
-          >
-        </mat-list>
-      </div>
-    </li>
+  <!-- User Details -->
+  <a
+    [routerLink]="['details/user-details/:id']"
+    class="flex items-center p-4 rounded-lg hover:bg-gray-700 shadow-xl transition-transform hover:scale-105 focus:bg-red-500"
+  >
+    <mat-icon class="text-white text-3xl">receipt</mat-icon>
+    <span class="ml-4 text-white text-xl">User Details</span>
+  </a>
 
-    <li class="list_button">
-      <div
-        (click)="toggleMenu('isHidden1')"
-        class="flex items-center p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
-      >
-        <mat-icon class="text-red-900">store</mat-icon>
-        <span class="ml-2">HOME Page</span>
-      </div>
-      <div *ngIf="!isHidden1">
-        <mat-list>
-          <mat-list-item [routerLink]="['home/home-page']" class="p-2"
-            >List Users</mat-list-item
-          >
-          <mat-list-item [routerLink]="['home/home-page']" class="p-2"
-            >Users List</mat-list-item
-          >
-        </mat-list>
-      </div>
-    </li>
+  <!-- Album Details -->
+  <a
+    [routerLink]="['albums/albums/:id']"
+    class="flex items-center p-4 rounded-lg hover:bg-gray-700 shadow-xl transition-transform hover:scale-105 focus:bg-red-500"
+  >
+    <mat-icon class="text-white text-3xl">photo_album</mat-icon>
+    <span class="ml-4 text-white text-xl">Album Details</span>
+  </a>
 
-    <!-- Anchor Invoices Link -->
-    <li class="list_button">
-      <a
-        [routerLink]="['details/user-details/:id']"
-        mat-list-item
-        class="flex items-center p-2 rounded-lg hover:bg-gray-100 shadow-xl transition-transform hover:scale-105 focus:bg-red-300"
-      >
-        <mat-icon class="text-red-900 text-lg">receipt</mat-icon>
-        <span class="ml-2">User Details</span>
-      </a>
-    </li>
-
-    <li class="list_button">
-      <a
-        [routerLink]="['albums/albums/:id']"
-        mat-list-item
-        class="flex items-center p-2 rounded-lg hover:bg-gray-100 shadow-xl transition-transform hover:scale-105 focus:bg-red-300"
-      >
-        <mat-icon class="text-red-900 text-lg">receipt</mat-icon>
-        <span class="ml-2">Album Details</span>
-      </a>
-    </li>
-
-    <li class="list_button">
-      <a
-        [routerLink]="['photo/photo/:id']"
-        mat-list-item
-        class="flex items-center p-2 rounded-lg hover:bg-gray-100 shadow-xl transition-transform hover:scale-105 focus:bg-red-300"
-      >
-        <mat-icon class="text-red-900 text-lg">receipt</mat-icon>
-        <span class="ml-2">Update Photo</span>
-      </a>
-    </li>
-
-    <!-- More List Items -->
-    <!-- Add additional list items for other sections like User Management, Product Application Management, etc. -->
-  </ul>
+  <a
+    [routerLink]="['logout']"
+    class="flex items-center p-4 rounded-lg hover:bg-gray-700 shadow-xl transition-transform hover:scale-105 focus:bg-red-500"
+  >
+    <mat-icon class="text-white text-3xl">logout</mat-icon>
+    <span class="ml-4 text-white text-xl">Logout</span>
+  </a>
 </div>

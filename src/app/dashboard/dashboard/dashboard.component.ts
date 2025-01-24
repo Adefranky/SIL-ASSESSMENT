@@ -9,12 +9,21 @@ Chart.register(...registerables);
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements AfterViewInit {
+  todayDate: string;
 
   ngAfterViewInit() {
     this.createBarChart();
     this.createPieChart();
   }
 
+  constructor() {
+    this.todayDate = new Date().toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
   createBarChart() {
     new Chart("barChart", {
       type: 'bar',

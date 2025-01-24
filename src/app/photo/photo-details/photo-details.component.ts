@@ -22,6 +22,7 @@ export class PhotoDetailsComponent {
     this.loadPhoto();
   }
 
+
   loadPhoto(): void {
     const photoId = this.data.userId;
 
