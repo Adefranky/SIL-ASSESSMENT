@@ -1,0 +1,60 @@
+<!-- Widgets -->
+<div class="widgets-container">
+  <mat-grid-list cols="4" rowHeight="fit" gutterSize="16px">
+    <!-- Total Animals -->
+    <mat-grid-tile>
+      <mat-card class="info-card">
+        <mat-card-content>
+          <p class="title">Total Animals</p>
+          <h2 class="value">
+            <span>10</span>
+            <mat-icon color="warn">add_box</mat-icon>
+          </h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Today's Sales -->
+    <mat-grid-tile>
+      <mat-card class="info-card">
+        <mat-card-content>
+          <p class="title">Today's Sales</p>
+          <h2 class="value">
+            <span>1</span>
+            <mat-icon color="warn">credit_card</mat-icon>
+          </h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Suspicious Activities -->
+    <mat-grid-tile>
+      <mat-card class="info-card">
+        <mat-card-content>
+          <p class="title">Suspicious Activities</p>
+          <h2 class="value">
+            <span>0</span>
+            <mat-icon color="warn">warning</mat-icon>
+          </h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Annual Mapping Target -->
+    <mat-grid-tile>
+      <mat-card class="info-card">
+        <mat-card-content>
+          <p class="title">Annual Mapping Target</p>
+          <h2 class="value">
+            <span>1%</span>
+          </h2>
+          <mat-progress-bar
+            color="warn"
+            mode="determinate"
+            [value]="1"
+          ></mat-progress-bar>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

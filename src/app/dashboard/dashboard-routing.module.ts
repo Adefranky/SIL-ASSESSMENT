@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
+  // { path: 'gen-widgets', component: GenWidgetsComponent },
 ];
 
 

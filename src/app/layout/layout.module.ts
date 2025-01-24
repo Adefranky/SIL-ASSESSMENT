@@ -13,6 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
+import { GenWidgetsComponent } from './gen-widgets/gen-widgets.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -20,7 +24,8 @@ import { MatMenuModule } from '@angular/material/menu';
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    GenWidgetsComponent
   ],
   imports: [
     CommonModule,
@@ -31,13 +36,21 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule,
+    MatIconModule,
+    MatGridListModule,
+    MatCardModule,
+
+
+
 
   ],
   exports: [
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
+    GenWidgetsComponent
 
   ]
 
