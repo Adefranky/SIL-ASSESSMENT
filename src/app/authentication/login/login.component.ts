@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ export class LoginComponent {
   loginForm: FormGroup;
   hidePassword = true;
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private snackBar: MatSnackBar,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -30,5 +33,12 @@ export class LoginComponent {
     console.log('Logging in:', { email, password });
 
     this.auth.login(email, password);
+  }
+  signInWithGoogle() {
+    this.auth.signInWithGoogle().then(() => {
+      this.router.navigate(['/dashboard']); // Redirect to the dashboard after login
+    }).catch(error => {
+      console.error("Google login error: ", error);
+    });
   }
 }

@@ -39,8 +39,8 @@
   </a>
 
   <a
-    [routerLink]="['logout']"
     class="flex items-center p-4 rounded-lg hover:bg-gray-700 shadow-xl transition-transform hover:scale-105 focus:bg-red-500"
+    (click)="logout()"
   >
     <mat-icon class="text-white text-3xl">logout</mat-icon>
     <span class="ml-4 text-white text-xl">Logout</span>

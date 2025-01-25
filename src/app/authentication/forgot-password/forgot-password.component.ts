@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -9,7 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ForgotPasswordComponent implements OnInit {
   forgotPasswordForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    private auth: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.forgotPasswordForm = this.fb.group({
@@ -21,7 +24,7 @@ export class ForgotPasswordComponent implements OnInit {
     if (this.forgotPasswordForm.valid) {
       const email = this.forgotPasswordForm.value.email;
       console.log('Password reset link sent to:', email);
-      // Implement actual reset logic, such as an API request
+      this.auth.forgotPassword(email);
     } else {
       console.log('Invalid email input');
     }

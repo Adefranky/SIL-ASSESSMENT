@@ -17,13 +17,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
     SignupComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    Page404Component
+    Page404Component,
+    VerifyEmailComponent
   ],
   imports: [
     CommonModule,
