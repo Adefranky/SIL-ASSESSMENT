@@ -1,0 +1,106 @@
+/* Background Styling */
+.verify-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('/assets/google/background.jpg') no-repeat center center/cover;
+  }
+  
+  /* Card Styling */
+  .verify-card {
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Header Styling */
+  .verify-header {
+    background-color: rgb(129, 125, 125);
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  /* Avatar */
+  .verify-card .avatar mat-icon {
+    font-size: 50px;
+    color: maroon;
+    margin: 10px 0;
+  }
+  
+  /* Button Styling */
+  button {
+    margin-top: 15px;
+    background-color: rgb(238, 243, 234);
+  }
+  
+  /* Google Login Button */
+  .google-login {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .google-login button {
+    display: flex;
+    align-items: center;
+    background-color: rgb(129, 125, 125);
+    color: black;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .google-login button:hover {
+    background: maroon;
+  }
+  
+  .google-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  /* Custom Button Styling */
+button {
+    margin-top: 20px;
+    background-color: rgb(129, 125, 125);
+    color: white; 
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px; 
+    border-radius: 8px; 
+    border: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%; 
+  }
+  
+  /* Hover Effect */
+  button:hover {
+    background-color: rgb(129, 125, 125);
+    transform: scale(1.05);
+  }
+  
+  /* Disabled Button Styling */
+  button:disabled {
+    background-color: rgb(204, 204, 204); 
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* Focused Button Styling */
+  button:focus {
+    outline: none; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  

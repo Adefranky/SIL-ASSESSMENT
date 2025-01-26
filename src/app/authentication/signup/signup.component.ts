@@ -9,6 +9,7 @@ import { AuthService } from '../auth.service';
 })
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
+  hidePassword: boolean = true;
 
   constructor(private fb: FormBuilder, private auth: AuthService) { }
 

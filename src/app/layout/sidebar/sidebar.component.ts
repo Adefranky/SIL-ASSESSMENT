@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  sidebarVisible = true; // Controls visibility of the sidebar
-  isHidden1 = true; // Controls visibility of the first collapsible section
-  isHidden3 = true; // Controls visibility of the second collapsible section
+  sidebarVisible = true;
+  isHidden1 = true;
+  isHidden3 = true;
   constructor(
     private auth: AuthService,
     private router: Router

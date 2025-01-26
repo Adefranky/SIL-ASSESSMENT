@@ -21,19 +21,14 @@
       #fileInput
     />
 
-    <a href="#" class="business-info">
-      <span class="business-name"
-        >{{ businessForm.get("businessName")?.value }} </span
+    <a href="#" class="user-info">
+      <span class="user-name">{{ userForm.get("userName")?.value }} </span
       ><br />
-      <span class="business-email"
-        >{{ businessForm.get("businessEmail")?.value }} </span
+      <span class="user-email">{{ userForm.get("userEmail")?.value }} </span
       ><br />
-      <span class="business-contact"
-        >{{ businessForm.get("contact")?.value }} </span
+      <span class="user-contact">{{ userForm.get("userContact")?.value }} </span
       ><br />
-      <span class="business-address">{{
-        businessForm.get("businessAddress")?.value
-      }}</span>
+      <span class="user-address">{{ userForm.get("userAddress")?.value }}</span>
     </a>
   </div>
 
@@ -51,7 +46,7 @@
       <mat-icon class="text-red-900 text-2xl">notifications_active</mat-icon>
     </button>
     <mat-menu #notificationMenu="matMenu">
-      <button mat-menu-item>View notifications</button>
+      <button mat-menu-item>No current notifications</button>
     </mat-menu>
 
     <!-- Apps -->
@@ -63,10 +58,10 @@
       <mat-icon class="text-red-900 text-2xl">apps</mat-icon>
     </button>
     <mat-menu #appsMenu="matMenu">
-      <button mat-menu-item><mat-icon>assessment</mat-icon> Sales</button>
+      <button mat-menu-item><mat-icon>assessment</mat-icon> My Albums</button>
       <button mat-menu-item><mat-icon>group</mat-icon> Users</button>
-      <button mat-menu-item><mat-icon>inbox</mat-icon> Inbox</button>
-      <button mat-menu-item><mat-icon>person</mat-icon> Profile</button>
+      <button mat-menu-item><mat-icon>inbox</mat-icon> Album Details</button>
+      <button mat-menu-item><mat-icon>person</mat-icon>My Profile</button>
       <button mat-menu-item><mat-icon>settings</mat-icon> Settings</button>
     </mat-menu>
   </div>

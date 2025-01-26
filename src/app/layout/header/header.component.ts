@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,41 +8,29 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class HeaderComponent {
 
-  // Define properties
+  @Output() sidebarToggle = new EventEmitter<void>();
+
   profileImageUrl: string | null = null;
-  businessForm: FormGroup;
+  userForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    // Initialize the businessForm with form controls
-    this.businessForm = this.fb.group({
-      businessName: [''],
-      businessEmail: [''],
-      contact: [''],
-      businessAddress: ['']
+    this.userForm = this.fb.group({
+      userName: [''],
+      userEmail: [''],
+      userContact: [''],
+      userAddress: ['']
     });
   }
 
-  // Method to toggle sidebar (example)
   toggleSidebar(): void {
-    console.log('Sidebar toggled');
+    this.sidebarToggle.emit();
   }
 
-  // Method to handle file selection
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input && input.files && input.files[0]) {
+    if (input?.files && input.files[0]) {
       const file = input.files[0];
-      // Handle the file (e.g., upload or display it)
-      console.log(file);
+      console.log('File selected:', file);
     }
-  }
-
-  // Methods to handle mouse enter and leave events (hover effect)
-  onMouseEnter(): void {
-    console.log('Mouse entered header');
-  }
-
-  onMouseLeave(): void {
-    console.log('Mouse left header');
   }
 }

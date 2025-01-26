@@ -1,89 +1,56 @@
-/* Global Styles */
-body {
-  background-color: #f4f1f0; /* Light beige background for a professional feel */
-  color: #4b2d2f; /* Maroon text color */
-  font-family: 'Roboto', sans-serif;
-}
-
-/* Form Container */
-.form-container {
+/* Background styling */
+.signup-container {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
+  align-items: center;
+  background: url('/assets/google/background.jpg') no-repeat center center/cover;
 }
 
 /* Card Styling */
 .signup-card {
-  width: 100%;
-  max-width: 450px;
-  background-color: #ffffff; /* White background for the form card */
-  padding: 25px;
+  width: 400px;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Logo */
-.logo {
+  background: #fff;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
-  margin-bottom: 20px;
 }
 
-.logo-img {
-  width: 150px;
-  height: auto;
-}
-
-/* Form Fields */
+/* Form */
 mat-form-field {
   width: 100%;
-  background-color: #f9f9f9; /* Light gray for input fields */
-  border-radius: 4px;
+  margin-top: 10px;
 }
 
-.field {
+/* Sign-up button */
+button.full-width {
   width: 100%;
-  margin-bottom: 18px;
-}
-
-/* Buttons */
-button {
-  width: 100%;
-  height: 50px;
-  background-color: maroon; /* Maroon */
-  color: #fff; /* White text for contrast */
+  background-color: rgb(129, 125, 125) !important;
+  color: white;
+  padding: 12px;
   font-size: 16px;
   font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 5px;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #6a3f3b; /* Darker maroon on hover */
-  }
+  transition: background-color 0.3s ease;
 }
 
-/* Login Link */
-.login-link {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 14px;
+button.full-width:hover {
+  background-color: rgb(129, 125, 125) !important;
 }
 
-.login-link a {
+/* Login link */
+.register-text {
+  margin-top: 10px;
+}
+
+.register-text a {
+  color: maroon;
   text-decoration: none;
-  font-weight: bold;
-  color: #4b2d2f; /* Maroon */
-
-  &:hover {
-    color: #6a3f3b; /* Darker maroon on hover */
-  }
 }
 
-.login-link span {
-  margin-right: 8px;
+.register-text a:hover {
+  text-decoration: underline;
 }

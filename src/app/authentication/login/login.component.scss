@@ -19,7 +19,7 @@
   
   /* Header Styling */
   .login-header {
-    background-color: maroon;
+    background-color: rgb(129, 125, 125);
     padding: 15px;
     color: white;
     font-weight: bold;
@@ -38,6 +38,24 @@
     width: 100%;
     margin-top: 10px;
   }
+
+button.full-width {
+  width: 100%;
+  background-color: rgb(129, 125, 125) !important; 
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  /* Add hover effect */
+button.full-width:hover {
+  background-color: rgb(129, 125, 125) !important; 
+}
   
   /* Actions */
   .actions {
