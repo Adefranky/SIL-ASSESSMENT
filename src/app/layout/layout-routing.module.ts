@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { DashboardComponent } from '../dashboard/dashboard/dashboard.component';
 import { GenWidgetsComponent } from './gen-widgets/gen-widgets.component';
+import { AuthGuard } from '../authentication/auth.guard';
 
 
 const routes: Routes = [
@@ -10,7 +11,7 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
   },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'gen-widgets', component: GenWidgetsComponent }
 ];
 

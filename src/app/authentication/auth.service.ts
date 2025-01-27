@@ -4,35 +4,34 @@ import { Router } from '@angular/router';
 import { GoogleAuthProvider } from 'firebase/auth';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  isLoggedIn: any;
-
   constructor(private fireauth: AngularFireAuth, private router: Router) { }
+
   // Login method
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
-      localStorage.setItem('token', 'true');
+      localStorage.setItem('token', 'true');  // Set token for persistence
       this.router.navigate(['dashboard']);
     }, err => {
       alert(err.message);
       this.router.navigate(['/authentication/login']);
-    })
+    });
   }
+
   // Register Method
   register(email: string, password: string) {
     this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
       alert('Registered Successfully');
-      this.router.navigate(['authentication/login'])
+      this.router.navigate(['authentication/login']);
       this.sendVerificationEmail();
     }, err => {
       alert(err.message);
       this.router.navigate(['authentication/signin']);
-    }
-    )
-
+    });
   }
+
   // Sign Out
   logout() {
     this.fireauth.signOut().then(() => {
@@ -40,7 +39,7 @@ export class AuthService {
       this.router.navigate(['authentication/login']);
     }, err => {
       alert(err.message);
-    })
+    });
   }
 
   // Forgot Password
@@ -48,8 +47,13 @@ export class AuthService {
     this.fireauth.sendPasswordResetEmail(email).then(() => {
       this.router.navigate(['authentication/verify-email']);
     }, err => {
-      console.log('something went wrong')
-    })
+      console.log('something went wrong');
+    });
+  }
+
+  // Check if the user is logged in
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');  // Check if token exists in local storage
   }
 
   // Email Verification
@@ -62,7 +66,7 @@ export class AuthService {
   // Signin With Google
   signInWithGoogle() {
     return this.fireauth
-      .signInWithPopup(new GoogleAuthProvider()) // ✅ Use imported GoogleAuthProvider
+      .signInWithPopup(new GoogleAuthProvider())
       .then(result => {
         console.log('Google login successful:', result);
         localStorage.setItem('token', 'true');

@@ -2,3 +2,32 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Default (Desktop) */
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .container {
+      max-width: 100%;
+      padding: 15px;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 100%) {
+    .container {
+      max-width: 100%;
+      padding: 10px;
+    }
+  }
+  
