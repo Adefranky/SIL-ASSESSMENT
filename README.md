@@ -26,7 +26,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-PhotoApp
+App Description
+
 PhotoApp is a web application built using Angular 17 and Firebase for authentication with Google. The system follows a modular-based architecture and integrates with the JSONPlaceholder API to fetch and manage data such as users, albums, and photos. The application is designed to be responsive, ensuring a seamless user experience across mobile, tablet, and desktop devices.
 Features
 Authentication Module:
@@ -52,8 +53,6 @@ Core Modules:
    • Each module has its own service file for interacting with APIs and handling logic.
    • Components in each module fetch data from APIs and pass it to services, ensuring clean separation of concerns.
 
----
-
 Getting Started
 Prerequisites
 • Node.js and npm must be installed on your machine.
@@ -70,8 +69,6 @@ Installation
 5. Run the development server:
    ng serve
    Navigate to http://localhost:4200/ in your browser.
-
----
 
 Features in Detail
 Authentication:
@@ -92,15 +89,11 @@ Album Details:
 Responsive Design:
 • The application is designed to be fully responsive using Angular Material, ensuring it works well on mobile, tablet, and desktop devices.
 
----
-
 Running Unit Tests
 The application includes unit tests to ensure the functionality of core features.
 • To run the unit tests:
 ng test
 • Tests are written using Jasmine and Karma.
-
----
 
 Deployment
 The application is hosted on Vercel Hosting. To deploy, use the following steps:
@@ -109,8 +102,6 @@ The application is hosted on Vercel Hosting. To deploy, use the following steps:
    ng build
 2. Deploy the build to Vercel:
    Vercel deploy
-
----
 
 Code Structure
 • app/
@@ -121,22 +112,16 @@ o albums/: Manages albums and related data.
 o layout/: Contains layout components such as header, sidebar, and main layout.
 • services/: Contains services for API calls to the backend.
 
----
-
 Technologies Used
 • Angular 17: Framework for building the frontend.
 • Firebase: Used for user authentication via Google and email/password.
 • JSONPlaceholder API: A mock backend API used for fetching users, albums, and photos.
 • Angular Material: For UI components and responsive layout.
 
----
-
 Future Enhancements
 • Add more advanced error handling for API requests.
 • Implement pagination for users and albums.
 • Enhance photo editing functionality to allow users to update photos directly.
-
----
 
 This project follows good development practices such as modular architecture, clean code, and reusable components. It uses Angular services to interact with the backend, ensuring scalability and maintainability.
 I have also added commits in my codes for easier understanding of the functionality of the codes and methods.
