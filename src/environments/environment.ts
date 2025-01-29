@@ -1,3 +1,12 @@
+interface FirebaseConfig {
+    apiKey: string;
+    authDomain: string;
+    projectId: string;
+    storageBucket: string;
+    messagingSenderId: string;
+    appId: string;
+}
+
 export const environment = {
     production: false,
     firebase: {
@@ -7,5 +16,5 @@ export const environment = {
         storageBucket: "photoapp-system.firebasestorage.app",
         messagingSenderId: "354877554062",
         appId: "1:354877554062:web:bba2f91509e05ccec9f8df"
-    }
+    } as FirebaseConfig
 };
