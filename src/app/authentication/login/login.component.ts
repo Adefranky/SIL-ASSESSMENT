@@ -34,11 +34,13 @@ export class LoginComponent {
 
     this.auth.login(email, password);
   }
-  signInWithGoogle() {
-    this.auth.signInWithGoogle().then(() => {
-      this.router.navigate(['/dashboard']); // Redirect to the dashboard after login
-    }).catch(error => {
-      console.error("Google login error: ", error);
-    });
+  async signInWithGoogle() {
+    try {
+      await this.auth.signInWithGoogle();
+      this.router.navigate(['/dashboard']);
+    } catch (error) {
+      console.error('Google login error:', error);
+    }
   }
+
 }

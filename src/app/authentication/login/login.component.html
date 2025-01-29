@@ -8,84 +8,94 @@
       and manage their photo albums. Keep your memories safe, categorized, and
       easily accessible anytime.
     </p>
-    <mat-card-content>
-      <div class="avatar">
-        <mat-icon>account_circle</mat-icon>
-      </div>
-      <p class="welcome-text">Welcome!</p>
-      <h3>Sign in to your account</h3>
+    <mat-card>
+      <mat-card-content>
+        <div class="avatar">
+          <mat-icon>account_circle</mat-icon>
+        </div>
+        <p class="welcome-text">Welcome!</p>
+        <h3>Sign in to your account</h3>
 
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" formControlName="email" required />
-          <mat-error
-            *ngIf="
-              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
-            "
-          >
-            Please enter a valid email.
-          </mat-error>
-        </mat-form-field>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required />
+            <mat-error
+              *ngIf="
+                loginForm.get('email')?.invalid &&
+                loginForm.get('email')?.touched
+              "
+            >
+              Please enter a valid email.
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Password</mat-label>
-          <input
-            matInput
-            [type]="hidePassword ? 'password' : 'text'"
-            formControlName="password"
-            required
-          />
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              [type]="hidePassword ? 'password' : 'text'"
+              formControlName="password"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="hidePassword = !hidePassword"
+            >
+              <mat-icon>{{
+                hidePassword ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+            <mat-error
+              *ngIf="
+                loginForm.get('password')?.invalid &&
+                loginForm.get('password')?.touched
+              "
+            >
+              Password is required.
+            </mat-error>
+          </mat-form-field>
+
+          <div class="actions">
+            <mat-checkbox formControlName="rememberMe"
+              >Remember me</mat-checkbox
+            >
+            <a
+              class="forgot-password"
+              routerLink="/authentication/forgot-password"
+              >Forgot password?</a
+            >
+          </div>
+
           <button
-            mat-icon-button
-            matSuffix
-            type="button"
-            (click)="hidePassword = !hidePassword"
+            mat-raised-button
+            color="warn"
+            class="full-width"
+            type="submit"
           >
-            <mat-icon>{{
-              hidePassword ? "visibility_off" : "visibility"
-            }}</mat-icon>
+            Login
           </button>
-          <mat-error
-            *ngIf="
-              loginForm.get('password')?.invalid &&
-              loginForm.get('password')?.touched
-            "
-          >
-            Password is required.
-          </mat-error>
-        </mat-form-field>
+        </form>
 
-        <div class="actions">
-          <mat-checkbox formControlName="rememberMe">Remember me</mat-checkbox>
-          <a
-            class="forgot-password"
-            routerLink="/authentication/forgot-password"
-            >Forgot password?</a
-          >
+        <div class="google-login-container">
+          <p>Or login with</p>
+          <button class="google-button" (click)="signInWithGoogle()">
+            <img
+              src="assets/google/google.png"
+              alt="Google Logo"
+              class="google-logo"
+            />
+            Sign in with Google
+          </button>
         </div>
 
-        <button mat-raised-button color="warn" class="full-width" type="submit">
-          Login
-        </button>
-      </form>
-
-      <div class="google-login-container">
-        <p>Or login with</p>
-        <button class="google-button" (click)="signInWithGoogle()">
-          <img
-            src="assets/google/google.png"
-            alt="Google Logo"
-            class="google-logo"
-          />
-          Sign in with Google
-        </button>
-      </div>
-
-      <p class="register-text">
-        Don’t have an account yet?
-        <a routerLink="/authentication/signup">Create an account</a>
-      </p>
-    </mat-card-content>
+        <p class="register-text">
+          Don’t have an account yet?
+          <a routerLink="/authentication/signup">Create an account</a>
+        </p>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

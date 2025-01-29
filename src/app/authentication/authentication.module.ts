@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
+
 @NgModule({
   declarations: [
     SignupComponent,
@@ -36,7 +37,10 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+
+
+
   ]
 })
 export class AuthenticationModule { }

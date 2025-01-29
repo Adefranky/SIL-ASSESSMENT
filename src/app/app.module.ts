@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire/compat'
 import { environment } from '../environments/environment';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { environment } from '../environments/environment';
     LayoutModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
+
 
 
   ],

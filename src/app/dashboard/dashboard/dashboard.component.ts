@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
@@ -6,14 +6,26 @@ Chart.register(...registerables);
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements AfterViewInit {
+export class DashboardComponent implements AfterViewInit, OnDestroy {
   todayDate: string;
+  barChartInstance: Chart | null = null;
+  pieChartInstance: Chart | null = null;
 
   ngAfterViewInit() {
     this.createBarChart();
     this.createPieChart();
+  }
+
+  ngOnDestroy() {
+    // Destroy existing charts if any
+    if (this.barChartInstance) {
+      this.barChartInstance.destroy();
+    }
+    if (this.pieChartInstance) {
+      this.pieChartInstance.destroy();
+    }
   }
 
   constructor() {
@@ -24,8 +36,12 @@ export class DashboardComponent implements AfterViewInit {
       day: 'numeric'
     });
   }
+
   createBarChart() {
-    new Chart("barChart", {
+    if (this.barChartInstance) {
+      this.barChartInstance.destroy();
+    }
+    this.barChartInstance = new Chart("barChart", {
       type: 'bar',
       data: {
         labels: ['Total Albums', 'Viewed Albums', 'Edited'],
@@ -47,7 +63,10 @@ export class DashboardComponent implements AfterViewInit {
   }
 
   createPieChart() {
-    new Chart("pieChart", {
+    if (this.pieChartInstance) {
+      this.pieChartInstance.destroy();
+    }
+    this.pieChartInstance = new Chart("pieChart", {
       type: 'pie',
       data: {
         labels: ['Total Albums', 'Viewed Albums', 'Edited'],

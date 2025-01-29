@@ -5,7 +5,10 @@ import { DetailsService } from '../details.service';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrl: './user-details.component.scss'
+  styleUrls: ['./user-details.component.scss'],
+  animations: [
+
+  ]
 })
 export class UserDetailsComponent {
   user: any;
@@ -15,7 +18,7 @@ export class UserDetailsComponent {
   constructor(
     private route: ActivatedRoute,
     private userService: DetailsService,
-    private router: Router,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,15 +26,26 @@ export class UserDetailsComponent {
     this.userId = Number(this.route.snapshot.paramMap.get('id'));
 
     // Fetch user details
-    this.userService.getUser(this.userId).subscribe(user => {
-      this.user = user;
+    this.userService.getUser(this.userId).subscribe({
+      next: (user) => {
+        this.user = user;
+      },
+      error: (err) => {
+        console.error(err);
+      },
     });
 
     // Fetch user albums
-    this.userService.getUserAlbums(this.userId).subscribe(albums => {
-      this.albums = albums;
+    this.userService.getUserAlbums(this.userId).subscribe({
+      next: (albums) => {
+        this.albums = albums;
+      },
+      error: (err) => {
+        console.error(err);
+      },
     });
   }
+
   goToDashboard(): void {
     this.router.navigate(['/dashboard']);
   }

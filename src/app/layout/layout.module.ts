@@ -13,10 +13,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
-import { GenWidgetsComponent } from './gen-widgets/gen-widgets.component';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+
+
 
 
 @NgModule({
@@ -25,7 +27,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     HeaderComponent,
     FooterComponent,
     MainLayoutComponent,
-    GenWidgetsComponent
+
   ],
   imports: [
     CommonModule,
@@ -45,12 +47,13 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
+
   ],
   exports: [
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
-    GenWidgetsComponent
+
 
   ]
 

@@ -8,6 +8,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class AppComponent {
   deviceType: string = 'Web';
+  title = 'photoApp';
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver.observe([
