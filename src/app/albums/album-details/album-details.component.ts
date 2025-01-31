@@ -1,6 +1,24 @@
+
+export interface Album {
+  userId: number;
+  id: number;
+  title: string;
+}
+
+
+export interface Photo {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}
+
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlbumService } from '../album.service';
+
 
 @Component({
   selector: 'app-album-details',
@@ -8,8 +26,8 @@ import { AlbumService } from '../album.service';
   styleUrls: ['./album-details.component.scss']
 })
 export class AlbumDetailsComponent implements OnInit {
-  album: any;
-  photos: any[] = [];
+  album: Album | null = null;
+  photos: Photo[] = [];
   albumId!: number;
 
   constructor(
@@ -41,8 +59,9 @@ export class AlbumDetailsComponent implements OnInit {
     });
   }
 
-  photoLoadError(event: any) {
-    event.target.src = 'assets/default-image.png';
+  photoLoadError(event: Event): void {
+    const imgElement = event.target as HTMLImageElement;
+    imgElement.src = 'assets/default-image.png';
   }
 
   goBack(): void {

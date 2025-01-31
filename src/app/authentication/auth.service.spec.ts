@@ -2,8 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from './auth.service';
-import { of, throwError } from 'rxjs';
-import { GoogleAuthProvider } from 'firebase/auth';
+import firebase from 'firebase/compat/app';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -40,7 +39,7 @@ describe('AuthService', () => {
 
   describe('login', () => {
     it('should navigate to dashboard on successful login', async () => {
-      fireAuthSpy.signInWithEmailAndPassword.and.returnValue(Promise.resolve({} as any));
+      fireAuthSpy.signInWithEmailAndPassword.and.returnValue(Promise.resolve({} as firebase.auth.UserCredential));
 
       await service.login('test@example.com', 'password');
 
@@ -55,7 +54,7 @@ describe('AuthService', () => {
 
       try {
         await service.login('test@example.com', 'wrongpassword');
-      } catch (error) {
+      } catch {
         expect(localStorage.getItem('token')).toBeNull();
         expect(routerSpy.navigate).toHaveBeenCalledWith(['/authentication/login']);
       }
@@ -64,7 +63,7 @@ describe('AuthService', () => {
 
   describe('register', () => {
     it('should navigate to login and send verification email on successful registration', async () => {
-      fireAuthSpy.createUserWithEmailAndPassword.and.returnValue(Promise.resolve({} as any));
+      fireAuthSpy.createUserWithEmailAndPassword.and.returnValue(Promise.resolve({} as firebase.auth.UserCredential));
       spyOn(service, 'sendVerificationEmail').and.returnValue(Promise.resolve());
 
       await service.register('test@example.com', 'password');
@@ -80,7 +79,7 @@ describe('AuthService', () => {
 
       try {
         await service.register('test@example.com', 'password');
-      } catch (error) {
+      } catch {
         expect(routerSpy.navigate).toHaveBeenCalledWith(['authentication/signin']);
       }
     });
@@ -102,7 +101,7 @@ describe('AuthService', () => {
 
       try {
         await service.logout();
-      } catch (error) {
+      } catch {
         expect(window.alert).toHaveBeenCalledWith('Logout failed');
       }
     });
@@ -125,7 +124,7 @@ describe('AuthService', () => {
 
       try {
         await service.forgotPassword('test@example.com');
-      } catch (error) {
+      } catch {
         expect(console.log).toHaveBeenCalledWith('something went wrong');
       }
     });
@@ -145,8 +144,8 @@ describe('AuthService', () => {
 
   describe('sendVerificationEmail', () => {
     it('should send a verification email to the user', async () => {
-      const mockUser = { sendEmailVerification: jasmine.createSpy() };
-      fireAuthSpy.currentUser = Promise.resolve(mockUser as any);
+      const mockUser = { sendEmailVerification: jasmine.createSpy() } as unknown as firebase.User;
+      fireAuthSpy.currentUser = Promise.resolve(mockUser);
 
       await service.sendVerificationEmail();
 
@@ -156,7 +155,7 @@ describe('AuthService', () => {
 
   describe('signInWithGoogle', () => {
     it('should log in with Google and navigate to dashboard', async () => {
-      fireAuthSpy.signInWithPopup.and.returnValue(Promise.resolve({} as any));
+      fireAuthSpy.signInWithPopup.and.returnValue(Promise.resolve({} as firebase.auth.UserCredential));
 
       await service.signInWithGoogle();
 
@@ -172,8 +171,8 @@ describe('AuthService', () => {
 
       try {
         await service.signInWithGoogle();
-      } catch (error) {
-        expect(console.error).toHaveBeenCalledWith('Google login error:', error);
+      } catch {
+        expect(console.error).toHaveBeenCalledWith('Google login error:', new Error('Google login failed'));
       }
     });
   });

@@ -51,21 +51,21 @@ describe('UserService', () => {
     albumsRequest.flush(mockAlbums);
   });
   it('should handle errors gracefully', () => {
-    const consoleSpy = spyOn(console, 'error'); // Spy on console error
+    const consoleSpy = spyOn(console, 'error');
 
     service.getUsersWithAlbums().subscribe({
       next: (data) => {
-        expect(data).toEqual([]); // Expect an empty array due to error handling
-        expect(consoleSpy).toHaveBeenCalled(); // Ensure console.error was called
+        expect(data).toEqual([]);
+        expect(consoleSpy).toHaveBeenCalled();
       },
       error: () => fail('Expected an empty array, but got an error'),
     });
 
     const usersRequest = httpMock.expectOne('https://jsonplaceholder.typicode.com/users');
-    usersRequest.error(new ErrorEvent('Network error')); // Simulate network failure
+    usersRequest.error(new ErrorEvent('Network error'));
 
     const albumsRequest = httpMock.expectOne('https://jsonplaceholder.typicode.com/albums');
-    albumsRequest.error(new ErrorEvent('Network error')); // Simulate network failure
+    albumsRequest.error(new ErrorEvent('Network error'));
   });
 
 });

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DetailsService } from '../details.service';
 
@@ -10,7 +10,7 @@ import { DetailsService } from '../details.service';
 
   ]
 })
-export class UserDetailsComponent {
+export class UserDetailsComponent implements OnInit {
   user: any;
   albums: any[] = [];
   userId!: number;

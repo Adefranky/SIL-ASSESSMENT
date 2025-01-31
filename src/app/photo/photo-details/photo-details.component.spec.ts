@@ -5,13 +5,24 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 
+// Define the types for the mocks
+interface AlbumServiceMock {
+  getPhoto: jasmine.Spy;
+  updatePhotoTitle: jasmine.Spy;
+}
+
+interface MatDialogRefMock {
+  close: jasmine.Spy;
+}
+
 describe('PhotoDetailsComponent', () => {
   let component: PhotoDetailsComponent;
   let fixture: ComponentFixture<PhotoDetailsComponent>;
-  let albumServiceMock: any;
-  let dialogRefMock: any;
+  let albumServiceMock: AlbumServiceMock;
+  let dialogRefMock: MatDialogRefMock;
 
   beforeEach(async () => {
+    // Initialize mocks with the proper types
     albumServiceMock = {
       getPhoto: jasmine.createSpy('getPhoto').and.returnValue(of({ id: 1, title: 'Test Photo', url: 'test-url.jpg' })),
       updatePhotoTitle: jasmine.createSpy('updatePhotoTitle').and.returnValue(of({ id: 1, title: 'Updated Title' }))

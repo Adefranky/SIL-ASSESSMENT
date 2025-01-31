@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AlbumService } from '../../albums/album.service';
 
@@ -7,10 +7,10 @@ import { AlbumService } from '../../albums/album.service';
   templateUrl: './photo-details.component.html',
   styleUrl: './photo-details.component.scss'
 })
-export class PhotoDetailsComponent {
+export class PhotoDetailsComponent implements OnInit {
   photo: any;
-  isEditing: boolean = false;
-  newTitle: string = '';
+  isEditing = false;
+  newTitle = '';
 
   constructor(
     private albumService: AlbumService,

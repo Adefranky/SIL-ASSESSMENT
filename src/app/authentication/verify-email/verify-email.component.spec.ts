@@ -4,7 +4,6 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { of } from 'rxjs';
 
 describe('VerifyEmailComponent', () => {
   let component: VerifyEmailComponent;

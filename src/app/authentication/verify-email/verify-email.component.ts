@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -10,14 +9,12 @@ import { Router } from '@angular/router';
 })
 export class VerifyEmailComponent {
 
-  message: string = '';
-  isLoading: boolean = false;
+  message = '';
+  isLoading = false;
 
   constructor(private auth: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
 
-  }
 
   sendVerificationEmail() {
     this.isLoading = true;

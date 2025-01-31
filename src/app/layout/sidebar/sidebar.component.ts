@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../authentication/auth.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
   sidebarVisible = true;
   isHidden1 = true;
   isHidden3 = true;
@@ -16,9 +16,7 @@ export class SidebarComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
 
-  }
   toggleMenu(menu: string) {
     if (menu === 'isHidden1') {
       this.isHidden1 = !this.isHidden1;

@@ -1,17 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoDetailsComponent } from '../../photo/photo-details/photo-details.component';
 
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  albumCount?: number;
+}
 @Component({
   selector: 'app-list-users',
   templateUrl: './list-users.component.html',
   styleUrl: './list-users.component.scss'
 })
-export class ListUsersComponent {
+export class ListUsersComponent implements OnInit {
 
-  users: any[] = [];
+  users: User[] = [];
   loading = true;
 
   constructor(private userService: UserService, private router: Router, private dialog: MatDialog) { }
@@ -30,7 +37,7 @@ export class ListUsersComponent {
   }
 
   // View user details
-  viewUser(user: any): void {
+  viewUser(user: User): void {
     this.router.navigate(['albums/albums', user.id]); // Navigate to a user details page
   }
   goToDashboard(): void {
@@ -38,7 +45,7 @@ export class ListUsersComponent {
   }
 
   // Open Photo Details in Dialog
-  editUser(user: any): void {
+  editUser(user: User): void {
     this.dialog.open(PhotoDetailsComponent, {
       width: '600px',
       height: '500px',
@@ -47,7 +54,7 @@ export class ListUsersComponent {
   }
 
   // Edit user details
-  userDetails(user: any): void {
+  userDetails(user: User): void {
     this.router.navigate(['details/user-details', user.id]); // Navigate to an edit form
   }
 }

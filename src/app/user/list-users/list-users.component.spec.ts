@@ -5,12 +5,20 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 
+// Import the User interface
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  albumCount?: number;
+}
+
 describe('ListUsersComponent', () => {
   let component: ListUsersComponent;
   let fixture: ComponentFixture<ListUsersComponent>;
-  let userServiceMock: any;
-  let routerMock: any;
-  let dialogMock: any;
+  let userServiceMock: Partial<UserService>;
+  let routerMock: Partial<Router>;
+  let dialogMock: Partial<MatDialog>;
 
   beforeEach(async () => {
     userServiceMock = {
@@ -52,7 +60,11 @@ describe('ListUsersComponent', () => {
   });
 
   it('should navigate to user details on viewUser()', () => {
-    const user = { id: 1 };
+    const user: User = {
+      id: 1,
+      name: 'Test User',
+      email: 'test@example.com'
+    };
     component.viewUser(user);
     expect(routerMock.navigate).toHaveBeenCalledWith(['albums/albums', user.id]);
   });
@@ -63,13 +75,21 @@ describe('ListUsersComponent', () => {
   });
 
   it('should open edit dialog on editUser()', () => {
-    const user = { id: 1 };
+    const user: User = {
+      id: 1,
+      name: 'Test User',
+      email: 'test@example.com'
+    };
     component.editUser(user);
     expect(dialogMock.open).toHaveBeenCalled();
   });
 
   it('should navigate to user details on userDetails()', () => {
-    const user = { id: 1 };
+    const user: User = {
+      id: 1,
+      name: 'Test User',
+      email: 'test@example.com'
+    };
     component.userDetails(user);
     expect(routerMock.navigate).toHaveBeenCalledWith(['details/user-details', user.id]);
   });

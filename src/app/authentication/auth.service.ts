@@ -12,7 +12,7 @@ export class AuthService {
   // Login method
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
-      localStorage.setItem('token', 'true');  // Set token for persistence
+      localStorage.setItem('token', 'true');
       this.router.navigate(['dashboard']);
     }, err => {
       alert(err.message);
@@ -46,7 +46,7 @@ export class AuthService {
   forgotPassword(email: string) {
     this.fireauth.sendPasswordResetEmail(email).then(() => {
       this.router.navigate(['authentication/verify-email']);
-    }, err => {
+    }, () => {
       console.log('something went wrong');
     });
   }

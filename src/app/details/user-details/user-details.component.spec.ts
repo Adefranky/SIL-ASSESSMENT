@@ -19,7 +19,7 @@ describe('UserDetailsComponent', () => {
     mockActivatedRoute = {
       snapshot: {
         paramMap: {
-          get: jasmine.createSpy('get').and.returnValue('1'), // Mock userId
+          get: jasmine.createSpy('get').and.returnValue('1'),
         },
       },
     } as any;
@@ -49,7 +49,11 @@ describe('UserDetailsComponent', () => {
   });
 
   it('should fetch user details on init', () => {
-    const mockUser = { id: 1, name: 'John Doe', email: 'john.doe@example.com', phone: '123456789', website: 'johndoe.com' };
+    const mockUser = {
+      id: 1, name: 'John Doe', email: 'john.doe@example.com', phone: '123456789', website: 'johndoe.com', username: 'john_doe', // Add username
+      address: '123 Main St',
+      company: 'Example Inc.'
+    };
     detailsService.getUser.and.returnValue(of(mockUser));
 
     fixture.detectChanges();
@@ -60,12 +64,12 @@ describe('UserDetailsComponent', () => {
 
   it('should handle error when fetching user details', () => {
     detailsService.getUser.and.returnValue(throwError(() => new Error('User fetch failed')));
-    const consoleSpy = spyOn(console, 'error'); // Spy on console.error to capture error
+    const consoleSpy = spyOn(console, 'error');
 
     fixture.detectChanges();
 
     expect(detailsService.getUser).toHaveBeenCalledOnceWith(1);
-    expect(consoleSpy).toHaveBeenCalledWith(jasmine.any(Error)); // Ensure the error is logged to the console
+    expect(consoleSpy).toHaveBeenCalledWith(jasmine.any(Error));
   });
 
   it('should fetch user albums on init', () => {
@@ -83,12 +87,12 @@ describe('UserDetailsComponent', () => {
 
   it('should handle error when fetching user albums', () => {
     detailsService.getUserAlbums.and.returnValue(throwError(() => new Error('Albums fetch failed')));
-    const consoleSpy = spyOn(console, 'error'); // Spy on console.error to capture error
+    const consoleSpy = spyOn(console, 'error');
 
     fixture.detectChanges();
 
     expect(detailsService.getUserAlbums).toHaveBeenCalledOnceWith(1);
-    expect(consoleSpy).toHaveBeenCalledWith(jasmine.any(Error)); // Ensure the error is logged to the console
+    expect(consoleSpy).toHaveBeenCalledWith(jasmine.any(Error));
   });
 
   it('should navigate to the dashboard when goToDashboard is called', () => {

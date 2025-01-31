@@ -7,7 +7,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  deviceType: string = 'Web';
+  deviceType = 'Web';
   title = 'photoApp';
 
   constructor(private breakpointObserver: BreakpointObserver) {
@@ -15,7 +15,7 @@ export class AppComponent {
       Breakpoints.Handset,
       Breakpoints.Tablet,
       Breakpoints.Web
-    ]).subscribe(result => {
+    ]).subscribe(() => {
       if (this.breakpointObserver.isMatched(Breakpoints.Handset)) {
         this.deviceType = 'Mobile';
       } else if (this.breakpointObserver.isMatched(Breakpoints.Tablet)) {

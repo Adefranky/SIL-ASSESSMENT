@@ -2,19 +2,18 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS 18.17.0'  // Make sure this matches your Jenkins NodeJS installation name
+        nodejs 'NodeJS 18.17.0'
     }
 
     environment {
         CI = 'true'
-        HEROKU_API_KEY = credentials('heroku-api-key')  // Create this credential in Jenkins
-        HEROKU_APP_NAME = 'morning-harbor-44913'       // Replace with your app name
+        HEROKU_API_KEY = credentials('heroku-api-key')
+        HEROKU_APP_NAME = 'morning-harbor-44913' 
     }
 
     stages {
         stage('Clone') {
             steps {
-                // Clean workspace using Windows command
                 powershell 'if (Test-Path -Path .\\* ) { Remove-Item .\\* -Recurse -Force }'
                 git branch: 'main',
                     url: 'https://github.com/Adefranky/SIL-ASSESSMENT.git'
@@ -23,7 +22,6 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                // Use bat for Windows command execution
                 bat 'npm install -g @angular/cli'
                 bat 'npm ci'
             }
@@ -50,7 +48,7 @@ pipeline {
         stage('Deploy to Heroku') {
             steps {
                 script {
-                    // Install Heroku CLI using PowerShell
+                
                     powershell '''
                         # Check if Heroku CLI is installed
                         if (!(Get-Command heroku -ErrorAction SilentlyContinue)) {
@@ -64,10 +62,10 @@ pipeline {
                         }
                     '''
                     
-                    // Login to Heroku using the API key
+                    
                     bat 'echo %HEROKU_API_KEY% | heroku auth:token'
                     
-                    // Configure Git for Windows
+                
                     bat '''
                         git config --global user.email "jenkins@example.com"
                         git config --global user.name "Jenkins"
@@ -95,7 +93,6 @@ pipeline {
 
     post {
         always {
-            // Clean workspace using Windows command
             powershell 'if (Test-Path -Path .\\* ) { Remove-Item .\\* -Recurse -Force }'
         }
         success {

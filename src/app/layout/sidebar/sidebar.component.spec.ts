@@ -2,26 +2,22 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SidebarComponent } from './sidebar.component';
 import { AuthService } from '../../authentication/auth.service';
-import { of } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
+
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
-  let authServiceMock: any;
+  let authServiceMock: jasmine.SpyObj<AuthService>;
 
   beforeEach(async () => {
-
-    authServiceMock = {
-      logout: jasmine.createSpy('logout')
-    };
+    // Mock the AuthService using jasmine.SpyObj to get type safety
+    authServiceMock = jasmine.createSpyObj<AuthService>('AuthService', ['logout']);
 
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule,
-        MatIconModule
-      ],
+      imports: [RouterTestingModule, MatIconModule],
       declarations: [SidebarComponent],
-      providers: [{ provide: AuthService, useValue: authServiceMock }]
+      providers: [{ provide: AuthService, useValue: authServiceMock }],
     })
       .compileComponents();
 

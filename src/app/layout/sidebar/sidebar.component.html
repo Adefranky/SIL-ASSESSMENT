@@ -37,10 +37,13 @@
     <mat-icon class="text-white text-3xl">photo_album</mat-icon>
     <span class="ml-4 text-white text-xl">Album Details</span>
   </a>
-
   <a
     class="flex items-center p-4 rounded-lg hover:bg-gray-700 shadow-xl transition-transform hover:scale-105 focus:bg-red-500"
     (click)="logout()"
+    (keydown.enter)="logout()"
+    tabindex="0"
+    role="button"
+    href="javascript:void(0)"
   >
     <mat-icon class="text-white text-3xl">logout</mat-icon>
     <span class="ml-4 text-white text-xl">Logout</span>
